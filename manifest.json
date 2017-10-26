@@ -1,0 +1,23 @@
+{
+  "short_name": "Credit Card Validation",
+  "name": "Credit Card Validation",
+  "description": "A Credit Card Validation app",
+  "display": "standalone",  
+  "icons": [
+    {
+      "src": "resources/symbiolinkedin-48x48.png",
+      "type": "image/png",
+      "sizes": "48x48"
+    },
+    {
+      "src": "resources/symbiolinkedin-96x96.png",
+      "type": "image/png",
+      "sizes": "96x96"
+    },
+    {
+      "src": "resources/symbiolinkedin-400x400.png",
+      "type": "image/png",
+      "sizes": "400x400"
+    }
+  ]
+}
