@@ -1,0 +1,12 @@
+# Node Modules
+node_modules/
+# Builds for Dev and Release
+dist/
+distRelease/
+# JetBrains stuff
+.idea
+# VSCode stuff
+.vscode/
+.history/
+# Other stuff
+.DS_Store
