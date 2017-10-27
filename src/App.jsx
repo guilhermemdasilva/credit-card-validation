@@ -1,8 +1,7 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import './App.scss';
 
-export const App = () => {
+const App = () => {
   return (
     <div className="app">
       <header className="app-header">
@@ -13,4 +12,4 @@ export const App = () => {
   );
 };
 
-ReactDOM.render(<App />, document.getElementById('root'));
+export default App;

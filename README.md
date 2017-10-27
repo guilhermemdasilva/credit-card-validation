@@ -1,11 +1,14 @@
 # Credit Card Validation
 
-Implementation of the validation process for​ the​ credit card​ number​, to​ catch​ users​ mistakes, and provide​ them​ helpful​ feedback.
+Implementation of the validation process for the credit card number, to catch users mistakes, and provide them helpful feedback.
 
 ## Build
 
 ### The following yarn commands are available:
 - `yarn install` (install dependencies)
+- `yarn test` (jest test)
+- `yarn testw`(jest test with watch)
+- `yarn dev` (development build with watch)
 - `yarn build` (production/release build)
 - `yarn build:dev` (development build)
 - `yarn build:dev:no-progress` (development build without progress)
