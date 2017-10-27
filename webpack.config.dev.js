@@ -11,7 +11,7 @@ module.exports = {
     extensions: ['.js', '.jsx', '.json']
   },
   entry: {
-    app: ['./src/App.jsx'],
+    app: ['./src/index.js'],
     vendors: ['react', 'react-dom']
   },
   output: {
