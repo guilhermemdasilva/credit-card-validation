@@ -43,6 +43,7 @@ module.exports = {
     'jsx-a11y/href-no-hash': 'off',
     'jsx-a11y/no-static-element-interactions': 'off',
     'jsx-a11y/no-noninteractive-tabindex': 'off',
+    'jsx-a11y/label-has-for': 'off',
 
     'react/jsx-indent': 'off', // Incompatible with prettier
     'react/jsx-closing-bracket-location': 'off', // Incompatible with prettier
