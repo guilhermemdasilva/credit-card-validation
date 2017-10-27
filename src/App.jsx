@@ -1,16 +1,11 @@
 import React from 'react';
+import Navbar from '../src/components/Navbar/Navbar';
 import './App.scss';
 
 const App = () => {
   return (
     <div className="app">
-      <nav className="navbar navbar-default">
-        <div className="container">
-          <div className="navbar-header">
-            <h1 className="logo">Symbio Sweden</h1>
-          </div>
-        </div>
-      </nav>
+      <Navbar />
       <div className="container">
         <div className="col-xs-12 col-sm-6 col-sm-offset-3">
           <div className="page-header">
