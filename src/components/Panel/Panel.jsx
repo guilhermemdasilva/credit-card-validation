@@ -1,8 +1,8 @@
 import React from 'react';
-import CreditCardNumber from '../CreditCardNumber/CreditCardNumber';
-import NameOnCard from '../NameOnCard/NameOnCard';
-import ExpiryDate from '../ExpiryDate/ExpiryDate';
-import CVV from '../CVV/CVV';
+import CreditCardNumber from './CreditCardNumber/CreditCardNumber';
+import NameOnCard from './NameOnCard/NameOnCard';
+import ExpiryDate from './ExpiryDate/ExpiryDate';
+import CVV from './CVV/CVV';
 
 const Panel = () => {
   return (
