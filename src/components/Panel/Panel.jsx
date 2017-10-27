@@ -1,4 +1,8 @@
 import React from 'react';
+import CreditCardNumber from '../CreditCardNumber/CreditCardNumber';
+import NameOnCard from '../NameOnCard/NameOnCard';
+import ExpiryDate from '../ExpiryDate/ExpiryDate';
+import CVV from '../CVV/CVV';
 
 const Panel = () => {
   return (
@@ -6,24 +10,17 @@ const Panel = () => {
       <div className="panel-body">
         <form>
           <div className="form-group">
-            <label>Credit card number:</label>
-            <div className="input-group">
-              <input type="text" className="form-control" id="card" />
-              <div className="input-group-addon" id="type" />
-            </div>
+            <CreditCardNumber />
           </div>
           <div className="form-group">
-            <label>Name on card:</label>
-            <input type="text" className="form-control" />
+            <NameOnCard />
           </div>
           <div className="clearfix">
             <div className="form-group form-group-mini">
-              <label>Expiry date:</label>
-              <input type="text" className="form-control" />
+              <ExpiryDate />
             </div>
             <div className="form-group form-group-mini">
-              <label>CVV:</label>
-              <input type="text" className="form-control" />
+              <CVV />
             </div>
           </div>
           <br />
