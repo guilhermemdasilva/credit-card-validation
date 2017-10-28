@@ -1,0 +1,19 @@
+.flag {
+  margin: 2px;
+  font-size: 16px;
+  &--colored {
+    color: blue;
+  }
+}
+
+.glyphicon-question-sign {
+  color: orange;
+}
+
+.glyphicon-remove-sign {
+  color: red;
+}
+
+.glyphicon-ok-sign {
+  color: green;
+}
