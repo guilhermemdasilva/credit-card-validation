@@ -5008,6 +5008,10 @@ react-dom@^16.0.0:
     object-assign "^4.1.1"
     prop-types "^15.6.0"
 
+react-input-mask@^1.0.7:
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/react-input-mask/-/react-input-mask-1.0.7.tgz#690d2189a1206972aeb82f332336be337fddf280"
+
 react-router-dom@^4.2.2:
   version "4.2.2"
   resolved "https://registry.yarnpkg.com/react-router-dom/-/react-router-dom-4.2.2.tgz#c8a81df3adc58bba8a76782e946cbd4eae649b8d"
