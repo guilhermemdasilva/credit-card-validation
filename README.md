@@ -2,6 +2,16 @@
 
 Implementation of the validation process for the credit card number, to catch users mistakes, and provide them helpful feedback.
 
+## Requirements
+
+The App was developed using the requirements below:
+
+* npm: +4.2.0
+
+* yarn: +1.0.2
+
+* node: +7.8.0
+
 ## Build
 
 ### The following yarn commands are available:
