@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import InputMask from 'react-input-mask';
+import classnames from 'classnames';
+import './CreditCardNumber.scss';
 
 class CreditCardNumber extends Component {
   static VISA_MASK = '9999 9999 9999 9999';
@@ -20,6 +22,7 @@ class CreditCardNumber extends Component {
     this.state = {
       isValid: false,
       mask: CreditCardNumber.VISA_MASK,
+      type: CreditCardNumber.UNKNOWN,
     };
   }
 
@@ -49,27 +52,29 @@ class CreditCardNumber extends Component {
     let isValid = this.isValidByLuhn(value);
     if (/^3[47]/.test(value)) {
       isValid = isValid && length === 15;
-      this.setState({ mask: CreditCardNumber.AMEX_MASK, isValid });
+      this.setState({ mask: CreditCardNumber.AMEX_MASK, isValid, type: CreditCardNumber.AMEX });
       this.props.handleType(CreditCardNumber.AMEX);
     } else if (/^4/.test(value)) {
       isValid = isValid && (length >= 13 && length <= 16);
-      this.setState({ mask: CreditCardNumber.VISA_MASK, isValid });
+      this.setState({ mask: CreditCardNumber.VISA_MASK, isValid, type: CreditCardNumber.VISA });
       this.props.handleType(CreditCardNumber.VISA);
     } else if (/^5/.test(value)) {
       isValid = isValid && length === 16;
       this.setState({
         mask: CreditCardNumber.MASTERCARD_MASK,
         isValid,
+        type: CreditCardNumber.MASTERCARD,
       });
       this.props.handleType(CreditCardNumber.MASTERCARD);
     } else {
       // Invalid or Unsupported card
+      this.setState({ type: CreditCardNumber.UNKNOWN });
       this.props.handleType(CreditCardNumber.UNKNOWN);
     }
   };
 
   render() {
-    const { mask, isValid } = this.state;
+    const { mask, isValid, type } = this.state;
     return (
       <div className="credit-card-number">
         <label>Credit card number:</label>
@@ -81,7 +86,44 @@ class CreditCardNumber extends Component {
             mask={mask}
             onChange={this.handleOnChange}
           />
-          <div className="input-group-addon" id="type" value={isValid} />
+          <div className="input-group-addon" id="type">
+            <span
+              className={classnames('glyphicon', 'glyphicon-question-sign')}
+              style={{
+                display: type === CreditCardNumber.UNKNOWN ? 'inline-block' : 'none',
+              }}
+            />
+            <span
+              className={classnames(
+                'fa',
+                'fa-cc-visa',
+                'flag',
+                type === CreditCardNumber.VISA ? 'flag--colored' : '',
+              )}
+            />
+            <span
+              className={classnames(
+                'fa',
+                'fa-cc-mastercard',
+                'flag',
+                type === CreditCardNumber.MASTERCARD ? 'flag--colored' : '',
+              )}
+            />
+            <span
+              className={classnames(
+                'fa',
+                'fa-cc-amex',
+                'flag',
+                type === CreditCardNumber.AMEX ? 'flag--colored' : '',
+              )}
+            />
+            <span
+              className={classnames(
+                'glyphicon',
+                isValid ? 'glyphicon-ok-sign' : 'glyphicon-remove-sign',
+              )}
+            />
+          </div>
         </div>
       </div>
     );
