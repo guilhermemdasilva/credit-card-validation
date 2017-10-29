@@ -5,34 +5,86 @@ import ExpiryDate from './ExpiryDate/ExpiryDate';
 import CVV from './CVV/CVV';
 
 class Panel extends Component {
+  static API = 'http://localhost:8081/api/register';
   constructor(props) {
     super(props);
     this.state = {
       type: CreditCardNumber.UNKNOWN,
+      cardnumber: '',
+      name: '',
+      expiry: '',
+      cvv: '',
     };
   }
 
-  onChangeType = param => {
-    this.setState({ type: param });
+  onChangeType = param => this.setState({ type: param });
+
+  onChangeCardNumber = param => this.setState({ cardnumber: param });
+  onChangeName = param => this.setState({ name: param });
+  onChangeExpiry = param => this.setState({ expiry: param });
+  onChangeCVV = param => this.setState({ cvv: param });
+
+  handleOnSubmit = evt => {
+    evt.preventDefault();
+
+    const request = {
+      cardnumber: this.state.cardnumber,
+      name: this.state.name,
+      expiry: this.state.expiry,
+      cvv: this.state.cvv,
+    };
+
+    if (
+      request.cardnumber === '' ||
+      request.name === '' ||
+      request.expiry === '' ||
+      request.cvv === ''
+    ) {
+      // eslint-disable-next-line no-alert
+      alert('Please, fill all the information before submit!');
+    } else {
+      fetch(Panel.API, {
+        body: JSON.stringify(request),
+        headers: {
+          Accept: 'application/json',
+        },
+        method: 'PUT',
+      }).then(response => {
+        if (response.ok) {
+          this.setState({
+            cardnumber: '',
+            name: '',
+            expiry: '',
+            cvv: '',
+          });
+        }
+        window.location.reload();
+        // eslint-disable-next-line no-alert
+        alert('Credit Card Information Submitted!');
+      });
+    }
   };
 
   render() {
     return (
       <div className="panel">
         <div className="panel-body">
-          <form>
+          <form onSubmit={this.handleOnSubmit}>
             <div className="form-group">
-              <CreditCardNumber handleType={this.onChangeType} />
+              <CreditCardNumber
+                handleCardNumber={this.onChangeCardNumber}
+                handleType={this.onChangeType}
+              />
             </div>
             <div className="form-group">
-              <NameOnCard />
+              <NameOnCard handleName={this.onChangeName} />
             </div>
             <div className="clearfix">
               <div className="form-group form-group-mini">
-                <ExpiryDate />
+                <ExpiryDate handleExpiry={this.onChangeExpiry} />
               </div>
               <div className="form-group form-group-mini">
-                <CVV type={this.state.type} />
+                <CVV handleCVV={this.onChangeCVV} type={this.state.type} />
               </div>
             </div>
             <br />

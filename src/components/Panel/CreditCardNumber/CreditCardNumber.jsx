@@ -14,6 +14,7 @@ class CreditCardNumber extends Component {
   static UNKNOWN = 'UNKNOWN';
 
   static propTypes = {
+    handleCardNumber: PropTypes.func,
     handleType: PropTypes.func,
   };
 
@@ -49,6 +50,7 @@ class CreditCardNumber extends Component {
   handleOnChange = event => {
     const { value } = event.target;
     const { length } = value.toString().replace(/ /g, '');
+    this.props.handleCardNumber(value.toString().replace(/ /g, ''));
     let isValid = this.isValidByLuhn(value);
     if (/^3[47]/.test(value)) {
       isValid = isValid && length === 15;

@@ -5,6 +5,7 @@ import CreditCardNumber from '../CreditCardNumber/CreditCardNumber';
 
 class CVV extends Component {
   static propTypes = {
+    handleCVV: PropTypes.func,
     type: PropTypes.string,
   };
 
@@ -23,12 +24,16 @@ class CVV extends Component {
     }
   }
 
+  handleOnChange = event => {
+    this.props.handleCVV(event.target.value);
+  };
+
   render() {
     const { mask } = this.state;
     return (
       <div className="cvv">
         <label>CVV:</label>
-        <InputMask className="form-control" mask={mask} />
+        <InputMask className="form-control" mask={mask} onChange={this.handleOnChange} />
       </div>
     );
   }
