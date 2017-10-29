@@ -37,6 +37,7 @@ class Panel extends Component {
     };
 
     if (
+      this.state.type === CreditCardNumber.UNKNOWN ||
       !this.state.isValid ||
       request.cardnumber === '' ||
       request.name === '' ||
