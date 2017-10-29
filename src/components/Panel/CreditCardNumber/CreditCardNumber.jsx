@@ -16,6 +16,7 @@ class CreditCardNumber extends Component {
   static propTypes = {
     handleCardNumber: PropTypes.func,
     handleType: PropTypes.func,
+    handleValidity: PropTypes.func,
   };
 
   constructor(props) {
@@ -73,6 +74,7 @@ class CreditCardNumber extends Component {
       this.setState({ type: CreditCardNumber.UNKNOWN });
       this.props.handleType(CreditCardNumber.UNKNOWN);
     }
+    this.props.handleValidity(isValid);
   };
 
   render() {

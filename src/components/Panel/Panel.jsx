@@ -14,6 +14,7 @@ class Panel extends Component {
       name: '',
       expiry: '',
       cvv: '',
+      isValid: false,
     };
   }
 
@@ -23,6 +24,7 @@ class Panel extends Component {
   onChangeName = param => this.setState({ name: param });
   onChangeExpiry = param => this.setState({ expiry: param });
   onChangeCVV = param => this.setState({ cvv: param });
+  onChangeValidity = param => this.setState({ isValid: param });
 
   handleOnSubmit = evt => {
     evt.preventDefault();
@@ -35,13 +37,14 @@ class Panel extends Component {
     };
 
     if (
+      !this.state.isValid ||
       request.cardnumber === '' ||
       request.name === '' ||
       request.expiry === '' ||
       request.cvv === ''
     ) {
       // eslint-disable-next-line no-alert
-      alert('Please, fill all the information before submit!');
+      alert('Please, fill everything with VALID information before submit!');
     } else {
       fetch(Panel.API, {
         body: JSON.stringify(request),
@@ -74,6 +77,7 @@ class Panel extends Component {
               <CreditCardNumber
                 handleCardNumber={this.onChangeCardNumber}
                 handleType={this.onChangeType}
+                handleValidity={this.onChangeValidity}
               />
             </div>
             <div className="form-group">
