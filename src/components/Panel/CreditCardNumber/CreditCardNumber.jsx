@@ -71,7 +71,7 @@ class CreditCardNumber extends Component {
       this.props.handleType(CreditCardNumber.MASTERCARD);
     } else {
       // Invalid or Unsupported card
-      this.setState({ type: CreditCardNumber.UNKNOWN });
+      this.setState({ type: CreditCardNumber.UNKNOWN, isValid });
       this.props.handleType(CreditCardNumber.UNKNOWN);
     }
     this.props.handleValidity(isValid);
