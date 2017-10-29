@@ -1,7 +1,7 @@
 import React from 'react';
-import Panel from '../Panel/Panel';
+import CreditCardInfoPanel from '../CreditCardInfoPanel/CreditCardInfoPanel';
 
-const Page = () => {
+const CreditCardInfoPage = () => {
   return (
     <div className="container">
       <div className="col-xs-12 col-sm-6 col-sm-offset-3">
@@ -9,10 +9,10 @@ const Page = () => {
           <h1>Order now</h1>
         </div>
 
-        <Panel />
+        <CreditCardInfoPanel />
       </div>
     </div>
   );
 };
 
-export default Page;
+export default CreditCardInfoPage;

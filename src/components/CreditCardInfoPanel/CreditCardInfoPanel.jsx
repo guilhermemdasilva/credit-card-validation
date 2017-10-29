@@ -4,7 +4,7 @@ import NameOnCard from './NameOnCard/NameOnCard';
 import ExpiryDate from './ExpiryDate/ExpiryDate';
 import CVV from './CVV/CVV';
 
-class Panel extends Component {
+class CreditCardInfoPanel extends Component {
   static API = 'http://localhost:8081/api/register';
   constructor(props) {
     super(props);
@@ -47,7 +47,7 @@ class Panel extends Component {
       // eslint-disable-next-line no-alert
       alert('Please, fill everything with VALID information before submit!');
     } else {
-      fetch(Panel.API, {
+      fetch(CreditCardInfoPanel.API, {
         body: JSON.stringify(request),
         headers: {
           Accept: 'application/json',
@@ -103,4 +103,4 @@ class Panel extends Component {
   }
 }
 
-export default Panel;
+export default CreditCardInfoPanel;
