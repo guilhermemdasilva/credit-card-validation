@@ -30,6 +30,7 @@ class CreditCardNumber extends Component {
 
   isValidByLuhn = creditCardNumber => {
     let sum = 0;
+    if (!creditCardNumber.length) return false;
     const digitsArray = creditCardNumber
       .toString()
       .replace(/ /g, '')
